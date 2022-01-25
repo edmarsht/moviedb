@@ -1,7 +1,13 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import "./Form.css";
 
 function Form() {
+    useEffect(() => {
+axios.get(
+`https://api.themoviedb.org/3/search/movie?api_key=058ed05a25fdffd8c072453602b6909f&query=star&language=en-US&page=1&include_adult=false`
+).then((data) => console.log(data));
+    }, [])
   return (
     <div className="form">
       <div className="form__container">
