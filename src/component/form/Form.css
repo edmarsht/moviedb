@@ -1,0 +1,46 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.form__sortedby {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.noborder-right {
+  border-radius: 20px 0 0 20px;
+  background: #5182f0;
+}
+.noborder-left {
+  border-radius: 0 20px 20px 0;
+  background: #5182f0;
+}
+
+input {
+  width: 16rem;
+  height: 3rem;
+  border-radius: 20px 20px 0 0;
+  border: none;
+  padding: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+form button {
+  width: 16rem;
+  height: 3rem;
+  border-radius: 0 0 20px 20px;
+  border: none;
+}
