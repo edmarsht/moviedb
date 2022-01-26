@@ -1,12 +1,16 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Form.css";
+import Movie from "../../component/movie/Movie";
+
 
 function Form() {
+const [moviesData, setMoviesData] = useState([])
+
     useEffect(() => {
 axios.get(
 `https://api.themoviedb.org/3/search/movie?api_key=058ed05a25fdffd8c072453602b6909f&query=star&language=en-US&page=1&include_adult=false`
-).then((data) => console.log(data));
+).then((res) => setMoviesData(res.data.results));
     }, [])
   return (
     <div className="form">
@@ -26,7 +30,12 @@ axios.get(
           ↓ Down
         </button>
       </div>
-      <div className="form__resultat">Résultat</div>
+      <div className="form__result">
+          
+          {moviesData.slice(0, 12).map((movie) => 
+          <Movie key={movie.id} movie={movie} />
+          )}
+      </div>
     </div>
   );
 }
