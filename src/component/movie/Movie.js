@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Movie.css";
 
 function Movie({ movie }) {
@@ -9,15 +10,17 @@ function Movie({ movie }) {
   return (
     <div>
       <a href="" class="card">
-        <img
-          src={
-            movie.poster_path
-              ? "https://image.tmdb.org/t/p/w500" + movie.poster_path
-              : "./image_default.png"
-          }
-          className="card__image"
-          alt="Poster movie"
-        />
+        <Link to={"/" + movie.title}>
+          <img
+            src={
+              movie.poster_path
+                ? "https://image.tmdb.org/t/p/w500" + movie.poster_path
+                : "./image_default.png"
+            }
+            className="card__image"
+            alt="Poster movie"
+          />
+        </Link>
         <div className="card__overlay">
           <div className="card__header">
             <div className="card__header-text">
@@ -25,7 +28,9 @@ function Movie({ movie }) {
             </div>
           </div>
           {movie.release_date ? (
-            <p className="card__description">Sorti le {dateFormater(movie.release_date)}</p>
+            <p className="card__description">
+              Sorti le {dateFormater(movie.release_date)}
+            </p>
           ) : (
             ""
           )}

@@ -9,7 +9,7 @@ const [moviesData, setMoviesData] = useState([])
 
     useEffect(() => {
 axios.get(
-`https://api.themoviedb.org/3/search/movie?api_key=058ed05a25fdffd8c072453602b6909f&query=ron&language=en-US&page=1&include_adult=false`
+`https://api.themoviedb.org/3/search/movie?api_key=058ed05a25fdffd8c072453602b6909f&query=king&language=en-US&page=1&include_adult=false`
 ).then((res) => setMoviesData(res.data.results));
     }, [])
   return (
