@@ -13,7 +13,6 @@ function App() {
           <Route path="/coup-de-coeur">
             <Userlist />
           </Route>
-          <Route path="/pote"></Route>
           <Route path="/">
             <Home />
           </Route>

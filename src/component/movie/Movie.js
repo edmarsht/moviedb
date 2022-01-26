@@ -10,7 +10,6 @@ function Movie({ movie }) {
   return (
     <div>
       <a href="" class="card">
-        <Link to={"/" + movie.title}>
           <img
             src={
               movie.poster_path
@@ -20,7 +19,6 @@ function Movie({ movie }) {
             className="card__image"
             alt="Poster movie"
           />
-        </Link>
         <div className="card__overlay">
           <div className="card__header">
             <div className="card__header-text">

@@ -4,8 +4,8 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-
 }
+
 .header__title {
   display: flex;
   flex-direction: row;
@@ -68,4 +68,18 @@ button:hover span {
 
 button:active {
   transform: scale(0.9);
+}
+
+@media screen and (max-width: 900px) {
+  .header__button {
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 600px) {
+  .header__button {
+    justify-content: center;
+  }
+  .header__button button {
+    margin: 2rem 1rem 4rem 1rem;
+  }
 }
