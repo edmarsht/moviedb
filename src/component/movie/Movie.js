@@ -73,12 +73,20 @@ function Movie({ movie }) {
           break;
       }
     }
-    return genreArray.slice(0, 3).map((genre) => <p key={genre}>{genre}</p>);
+    return genreArray.slice(0, 2).map((genre) => <p key={genre}>{genre}</p>);
   };
 
+  const addStorage = () => {
+      let storedData = window.localStorage.movies ? window.localStorage.movies.split(",") : [];
+    if (!storedData.includes(movie.id.toString())) {
+        storedData.push(movie.id)
+        window.localStorage.movies = storedData
+    }
+  }
+
   return (
-    <div>
-      <a href="" class="card">
+    <div class="card">
+      
         <img
           src={
             movie.poster_path
@@ -109,14 +117,13 @@ function Movie({ movie }) {
 
           <div className="reviewandfavorite">
             <h3 className="card__title">{movie.vote_average}/10 ☆</h3>
-            <div className="button__favorite">
+            <div className="button__favorite" onClick={() => addStorage()}>
               <button>❤</button>
             </div>
           </div>
           <p className="card__description description">{movie.overview}</p>
-          <p className="card__description genre">{genreFinder()}</p>
+          {movie.genre_ids ? <p className="card__description genre">{genreFinder()}</p> : ""}
         </div>
-      </a>
     </div>
   );
 }
