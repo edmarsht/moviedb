@@ -89,7 +89,7 @@
   }
   
   .card__description {
-    padding: 0 2em 2em;
+    padding: 0 2em 1em;
     margin: 0;
     color: #D7BDCA;
     display: -webkit-box;
@@ -97,3 +97,19 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
   }    
+
+  .genre {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      background: #211E40;
+      border-radius: 30px;
+      color: white;
+      padding-top: 0.8rem;
+  }
+
+  .description {
+      overflow-y: scroll;
+  }
