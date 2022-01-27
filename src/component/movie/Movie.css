@@ -89,7 +89,7 @@
   }
   
   .card__description {
-    padding: 0 2em 1em;
+    padding: 0 2em 0.5em;
     margin: 0;
     color: #D7BDCA;
     display: -webkit-box;
@@ -114,15 +114,16 @@
       overflow-y: scroll;
   }
 
-  .button__favorite {
-      display: flex;
-      justify-content: flex-end;
-      flex-direction: row;
 
-  }
   .button__favorite button {
       min-width: 40px;
-      margin-right: 1rem;
   }
 
-  
+  .reviewandfavorite {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      margin: 0.5rem 2rem;
+  }

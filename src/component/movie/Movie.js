@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Movie.css";
 
 function Movie({ movie }) {
-
   const dateFormater = (date) => {
     let [yy, mm, dd] = date.split("-");
     return [dd, mm, yy].join("/");
@@ -74,8 +73,7 @@ function Movie({ movie }) {
           break;
       }
     }
-    // return <p>{genreArray[0]}</p>
-    return genreArray.slice(0, 3).map((genre) => <p key={genre}>{genre}</p>)
+    return genreArray.slice(0, 3).map((genre) => <p key={genre}>{genre}</p>);
   };
 
   return (
@@ -96,15 +94,25 @@ function Movie({ movie }) {
               <h3 className="card__title">{movie.title}</h3>
             </div>
           </div>
-          <div className="button__favorite"><button>❤</button></div>
-          {movie.release_date ? (
+          
+          {/* -------------------------------------------Date-------------------------------- */}
+
+          {/* {movie.release_date ? (
             <p className="card__description">
               Sorti le {dateFormater(movie.release_date)}
             </p>
           ) : (
             ""
-          )}
-          <h3 className="card__description">{movie.vote_average}/10 ☆</h3>
+          )} */}
+
+          {/* -------------------------------------------Date-------------------------------- */}
+
+          <div className="reviewandfavorite">
+            <h3 className="card__title">{movie.vote_average}/10 ☆</h3>
+            <div className="button__favorite">
+              <button>❤</button>
+            </div>
+          </div>
           <p className="card__description description">{movie.overview}</p>
           <p className="card__description genre">{genreFinder()}</p>
         </div>
