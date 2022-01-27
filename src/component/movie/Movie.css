@@ -113,3 +113,16 @@
   .description {
       overflow-y: scroll;
   }
+
+  .button__favorite {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row;
+
+  }
+  .button__favorite button {
+      min-width: 40px;
+      margin-right: 1rem;
+  }
+
+  

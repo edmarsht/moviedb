@@ -96,6 +96,7 @@ function Movie({ movie }) {
               <h3 className="card__title">{movie.title}</h3>
             </div>
           </div>
+          <div className="button__favorite"><button>❤</button></div>
           {movie.release_date ? (
             <p className="card__description">
               Sorti le {dateFormater(movie.release_date)}
