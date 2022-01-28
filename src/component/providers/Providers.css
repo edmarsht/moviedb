@@ -1,0 +1,11 @@
+.img_provider {
+    width: 35px;
+}
+
+.whatch__provider {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}

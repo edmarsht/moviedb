@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Movie.css";
+import Providers from "../../component/providers/Providers";
+
 
 function Movie({ movie }) {
   const dateFormater = (date) => {
@@ -137,6 +138,7 @@ function Movie({ movie }) {
           </div>}
           
         </div>
+        <div className="card__title"><Providers key={movie.id} movie={movie}/></div>
         <p className="card__description description">{movie.overview}</p>
         {movie.genre_ids ? (
           <p className="card__description genre">{genreFinder()}</p>
