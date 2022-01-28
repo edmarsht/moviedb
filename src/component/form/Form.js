@@ -35,9 +35,9 @@ axios.get(
         <form>
           <input type="text" placeholder="Search a movie" id="search-movie"                 autoComplete="off"
  onChange={(e) => setSearch(e.target.value)} />
-          <button className="noborder-button" type="submit" Value="Search">
+          {/* <button className="noborder-button" type="submit" Value="Search">
             Search
-          </button>
+          </button> */}
         </form>
       </div>
       <div className="form__sortedby">
