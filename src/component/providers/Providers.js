@@ -28,7 +28,7 @@ function Providers({ movie }) {
               />
             ))
         ) : (
-          <h1>Pas en streaming</h1>
+          ""
         )}
       </div>
     </div>

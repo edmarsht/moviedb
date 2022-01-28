@@ -131,6 +131,7 @@ function Movie({ movie }) {
 
         <div className="reviewandfavorite">
           <h3 className="card__title">{movie.vote_average}/10 ☆</h3>
+          <div className="card__title"><Providers key={movie.id} movie={movie}/></div>
           {movie.genre_ids ? <div className="button__favorite" onClick={() => addStorage()}>
             <button>❤</button>
           </div> : <div className="button__favorite" onClick={() => deleteStorage()}>
@@ -138,7 +139,7 @@ function Movie({ movie }) {
           </div>}
           
         </div>
-        <div className="card__title"><Providers key={movie.id} movie={movie}/></div>
+        {/* <div className="card__title"><Providers key={movie.id} movie={movie}/></div> */}
         <p className="card__description description">{movie.overview}</p>
         {movie.genre_ids ? (
           <p className="card__description genre">{genreFinder()}</p>
