@@ -1,5 +1,7 @@
+
 .userlist h2 {
     color: white;
+    text-align: center;
 }
 
 .emptylist {
@@ -11,4 +13,19 @@
     color: white;
     font-size: 42px;
     margin: 8rem;
+    text-align: center;
+    width: 100%;
 }
+
+@media screen and (max-width:850px) {
+    .emptylist h3 {
+        font-size: 42px;
+        margin: 4rem;
+    }
+  }
+@media screen and (max-width:650px) {
+    .emptylist h3 {
+        font-size: 32px;
+        margin: 2rem;
+    }
+  }
