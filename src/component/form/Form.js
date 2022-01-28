@@ -33,7 +33,8 @@ axios.get(
     <div className="form">
       <div className="form__container">
         <form>
-          <input type="text" placeholder="Search a movie" id="search-movie" onChange={(e) => setSearch(e.target.value)} />
+          <input type="text" placeholder="Search a movie" id="search-movie"                 autoComplete="off"
+ onChange={(e) => setSearch(e.target.value)} />
           <button className="noborder-button" type="submit" Value="Search">
             Search
           </button>
