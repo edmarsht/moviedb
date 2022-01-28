@@ -7,7 +7,7 @@
   position: relative;
   display: block;
   height: 400px;
-  width: 100%;
+  width: 350px;
   border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
