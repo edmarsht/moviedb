@@ -26,7 +26,7 @@ function Userlist() {
     <div className="userlist section__padding">
       <h2>Coup de coeur</h2>
       <div className="form__result">
-        {listData.map((movie) => <Movie movie={movie} />)}
+        {listData.length > 0 ? listData.map((movie) => (<Movie key={movie.id} movie={movie} />)) : <div className="emptylist"><h3>Votre liste est vide.</h3></div>}
       </div>
     </div>
   );

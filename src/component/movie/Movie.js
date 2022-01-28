@@ -77,35 +77,48 @@ function Movie({ movie }) {
   };
 
   const addStorage = () => {
-      let storedData = window.localStorage.movies ? window.localStorage.movies.split(",") : [];
+    let storedData = window.localStorage.movies
+      ? window.localStorage.movies.split(",")
+      : [];
     if (!storedData.includes(movie.id.toString())) {
-        storedData.push(movie.id)
-        window.localStorage.movies = storedData
+      storedData.push(movie.id);
+      window.localStorage.movies = storedData;
     }
-  }
+  };
+
+  const deleteStorage = () => {
+    let storedData = window.localStorage.movies.split(",");
+
+    let newData = storedData.filter((id) => id != movie.id);
+
+    window.localStorage.movies = newData;
+
+    window.location.reload();
+
+  
+  };
 
   return (
     <div class="card">
-      
-        <img
-          src={
-            movie.poster_path
-              ? "https://image.tmdb.org/t/p/w500" + movie.poster_path
-              : "./image_default.png"
-          }
-          className="card__image"
-          alt="Poster movie"
-        />
-        <div className="card__overlay">
-          <div className="card__header">
-            <div className="card__header-text">
-              <h3 className="card__title">{movie.title}</h3>
-            </div>
+      <img
+        src={
+          movie.poster_path
+            ? "https://image.tmdb.org/t/p/w500" + movie.poster_path
+            : "./image_default.png"
+        }
+        className="card__image"
+        alt="Poster movie"
+      />
+      <div className="card__overlay">
+        <div className="card__header">
+          <div className="card__header-text">
+            <h3 className="card__title">{movie.title}</h3>
           </div>
-          
-          {/* -------------------------------------------Date-------------------------------- */}
+        </div>
 
-          {/* {movie.release_date ? (
+        {/* -------------------------------------------Date-------------------------------- */}
+
+        {/* {movie.release_date ? (
             <p className="card__description">
               Sorti le {dateFormater(movie.release_date)}
             </p>
@@ -113,17 +126,24 @@ function Movie({ movie }) {
             ""
           )} */}
 
-          {/* -------------------------------------------Date-------------------------------- */}
+        {/* -------------------------------------------Date-------------------------------- */}
 
-          <div className="reviewandfavorite">
-            <h3 className="card__title">{movie.vote_average}/10 ☆</h3>
-            <div className="button__favorite" onClick={() => addStorage()}>
-              <button>❤</button>
-            </div>
-          </div>
-          <p className="card__description description">{movie.overview}</p>
-          {movie.genre_ids ? <p className="card__description genre">{genreFinder()}</p> : ""}
+        <div className="reviewandfavorite">
+          <h3 className="card__title">{movie.vote_average}/10 ☆</h3>
+          {movie.genre_ids ? <div className="button__favorite" onClick={() => addStorage()}>
+            <button>❤</button>
+          </div> : <div className="button__favorite" onClick={() => deleteStorage()}>
+            <button>⤫</button>
+          </div>}
+          
         </div>
+        <p className="card__description description">{movie.overview}</p>
+        {movie.genre_ids ? (
+          <p className="card__description genre">{genreFinder()}</p>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }
