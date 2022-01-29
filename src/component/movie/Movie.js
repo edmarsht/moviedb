@@ -4,11 +4,14 @@ import Providers from "../../component/providers/Providers";
 
 
 function Movie({ movie }) {
-  const dateFormater = (date) => {
-    let [yy, mm, dd] = date.split("-");
-    return [dd, mm, yy].join("/");
-  };
+  // ------------------------------------------- fonction qui affiche la date correctement ------
+  // const dateFormater = (date) => {
+  //   let [yy, mm, dd] = date.split("-");
+  //   return [dd, mm, yy].join("/");
+  // };
 
+
+  // ------------------------------------------- Fonction qui boucle un array pour identifier les genre ------
   const genreFinder = () => {
     let genreArray = [];
     for (let i = 0; i < movie.genre_ids.length; i++) {
@@ -77,6 +80,8 @@ function Movie({ movie }) {
     return genreArray.slice(0, 2).map((genre) => <p key={genre}>{genre}</p>);
   };
 
+
+  // ------------------------------------------- Fonction pour ajouter des données au storage du navigateur ------
   const addStorage = () => {
     let storedData = window.localStorage.movies
       ? window.localStorage.movies.split(",")
@@ -87,16 +92,12 @@ function Movie({ movie }) {
     }
   };
 
+    // ------------------------------------------- Fonction pour supprimer des données au storage du navigateur ------
   const deleteStorage = () => {
     let storedData = window.localStorage.movies.split(",");
-
     let newData = storedData.filter((id) => id != movie.id);
-
     window.localStorage.movies = newData;
-
     window.location.reload();
-
-  
   };
 
   return (
@@ -118,7 +119,6 @@ function Movie({ movie }) {
         </div>
 
         {/* -------------------------------------------Date-------------------------------- */}
-
         {/* {movie.release_date ? (
             <p className="card__description">
               Sorti le {dateFormater(movie.release_date)}
@@ -127,8 +127,6 @@ function Movie({ movie }) {
             ""
           )} */}
 
-        {/* -------------------------------------------Date-------------------------------- */}
-
         <div className="reviewandfavorite">
           <h3 className="card__title">{movie.vote_average}/10 ☆</h3>
           <div className="card__title"><Providers key={movie.id} movie={movie}/></div>
@@ -136,10 +134,8 @@ function Movie({ movie }) {
             <button>❤</button>
           </div> : <div className="button__favorite" onClick={() => deleteStorage()}>
             <button>⤫</button>
-          </div>}
-          
+          </div>}          
         </div>
-        {/* <div className="card__title"><Providers key={movie.id} movie={movie}/></div> */}
         <p className="card__description description">{movie.overview}</p>
         {movie.genre_ids ? (
           <p className="card__description genre">{genreFinder()}</p>

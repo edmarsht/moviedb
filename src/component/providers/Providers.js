@@ -15,7 +15,6 @@ function Providers({ movie }) {
 
   return (
     <div>
-      {/* <h1>{providers.provider_id}</h1> */}
       <div className="whatch__provider">
         {providers ? (
           providers

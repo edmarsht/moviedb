@@ -1,7 +1,6 @@
 import React from "react";
 import "./Home.css"
 import Form from "../../component/form/Form";
-import { Link } from "react-router-dom";
 
 
 function Home() {
